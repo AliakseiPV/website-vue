@@ -20,10 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$margin: 22.5rem;
-$headerColor: #292F36;
-$textColor: #4D5053;
-$buttonColor: #F4F0EC;
+@import '../styles/vars.scss';
 
 .navbar {
 	margin: 0 $margin;

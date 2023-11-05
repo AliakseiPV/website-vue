@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<BgLinesComponent />
-		<ArticlePage/>
+		<ArticlePage />
 	</div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './styles/vars.scss';
 
 * {
 	margin: 0;
@@ -40,5 +41,11 @@ a {
 	flex-direction: column;
 	align-items: center;
 	position: relative;
+}
+
+.arrow_btn {
+	border-radius: 50%;
+	border: none;
+	background-color: $buttonColor;
 }
 </style>

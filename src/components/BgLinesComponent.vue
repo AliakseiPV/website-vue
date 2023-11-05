@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$margin: 22.5rem;
+@import '../styles/vars.scss';
 
 .lines {
 	padding: 0 $margin;

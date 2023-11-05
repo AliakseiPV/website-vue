@@ -46,16 +46,16 @@
 </template>
 
 <script>
+import '../styles/vars.scss'
+
 export default {
 	name: 'FooterComponent'
 }
 </script>
 
 <style scoped lang="scss">
-$margin: 22.5rem;
-$headerColor: #292F36;
-$textColor: #4D5053;
-$buttonColor: #F4F0EC;
+
+@import '../styles/vars.scss';
 
 .footer {
 	margin: 0 $margin;
