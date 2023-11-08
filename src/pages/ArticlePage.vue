@@ -2,15 +2,7 @@
 	<div class="article-page">
 		<NavbarComponent />
 
-		<div class="hero">
-			<header class="hero__header">
-				<h1 class="hero__title">Articles & News</h1>
-				<div class="hero__bread-crumbs">
-					<a class="hero__link" href="#">Home</a>
-					<a class="hero__link" href="#">Blog</a>
-				</div>
-			</header>
-		</div>
+		<HeaderImgComponent :imgSrc="heroSection.img" :header="heroSection.header" :links="heroSection.links"/>
 
 		<div class="post">
 			<h1 class="post__title">Latest Post</h1>
@@ -46,7 +38,7 @@
 			<div class="news__container">
 				<div class="news__item" v-for="article in articles" :key="article.id">
 					<div class="news__item_img-container">
-						<img class="news__item_img" :src=article.img alt="kitchen">
+						<img class="news__item_img" :src="article.img" alt="kitchen">
 						<span class="news__item_type">{{ article.designRoom }}</span>
 					</div>
 					<h3 class="news__item_title">{{ article.title }}</h3>
@@ -59,15 +51,9 @@
 				</div>
 			</div>
 
-			<ul class="news__pagination">
-				<li class="news__btn">01</li>
-				<li class="news__btn">02</li>
-				<li class="news__btn">03</li>
-				<li class="news__btn">
-					<img src="../assets/vector.svg" alt="vector">
-				</li>
-			</ul>
+			
 		</div>
+		<PaginationComponent />
 
 		<FooterComponent />
 	</div>
@@ -76,54 +62,74 @@
 <script>
 import NavbarComponent from '../components/NavbarComponent'
 import FooterComponent from '../components/FooterComponent'
+import PaginationComponent from '../components/PaginationComponent.vue'
+import HeaderImgComponent from '../components/HeaderImgComponent.vue'
 
 export default {
 	name: 'ArticlePage',
 	components: {
 		NavbarComponent,
-		FooterComponent
+		FooterComponent,
+		PaginationComponent,
+		HeaderImgComponent,
 	},
 	data() {
 		return {
+			heroSection: {
+				img: require('../assets/news-hero.jpg'),
+				header: 'Articles & News',
+				links: [
+					{
+						id: 0,
+						name: 'Home',
+						href: '#'
+					},
+					{
+						id: 1,
+						name: 'Blog',
+						href: '#'
+					}
+				]
+			},
 			articles: [
 				{
 					id: 0,
-					img: '../assets/homepage-design01.jpg',
+					img: require('../assets/homepage-design01.jpg'),
 					designRoom: 'Kitchen Design',
 					title: 'Let’s Get Solution For Building Construction Work',
 					date: '26 December,2022'
 				},
 				{
 					id: 1,
-					img: '../assets/homepage-design02.jpg',
+					img: require('../assets/homepage-design02.jpg'),
 					designRoom: 'Living Design',
 					title: 'Low Cost Latest Invented Interior Designing Ideas.',
 					date: '22 December,2022'
 				},
 				{
 					id: 2,
-					img: '../assets/homepage-design03.jpg',
+					img: require('../assets/homepage-design03.jpg'),
 					designRoom: 'Interior Design',
 					title: 'Best For Any Office & Business Interior Solution',
 					date: '25 December,2022'
 				},
 				{
 					id: 3,
-					img: '../assets/news-design01.jpg',
+					img: require('../assets/news-design01.jpg'),
 					designRoom: 'Kitchen Design',
 					title: 'Let’s Get Solution For Building Construction Work',
 					date: '26 December,2022'
 				},
 				{
 					id: 4,
-					img: '../assets/news-design02.jpg',
+					img: require('../assets/news-design02.jpg'),
 					designRoom: 'Kitchen Design',
 					title: 'Low Cost Latest Invented Interior Designing Ideas.',
 					date: '22 December,2022'
 				},
 				{
 					id: 5,
-					img: '../assets/news-design03.jpg',
+					img: require('../assets/news-design03.jpg'),
 					designRoom: 'Kitchen Design',
 					title: 'Best For Any Office & Business Interior Solution',
 					date: '25 December,2022'
@@ -140,47 +146,6 @@ export default {
 
 .article-page {
 	width: 100%;
-}
-
-.hero {
-	width: 100%;
-	height: 356px;
-	display: flex;
-	align-items: end;
-	justify-content: center;
-	background-image: url(../assets/news-hero.jpg);
-
-	&__header {
-		border-radius: 37px 37px 0 0;
-		width: 500px;
-		height: 180px;
-		background-color: #fff;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-
-	&__title {
-		color: $headerColor;
-		font-family: DM Serif Display;
-		font-size: 50px;
-		font-weight: 400;
-		line-height: 125%;
-	}
-
-	&__link {
-		color: $textColor;
-		font-family: Jost;
-		font-size: 22px;
-		line-height: 150%;
-		letter-spacing: 0.22px;
-	}
-
-	&__link:not(:last-child):after {
-		content: '\/';
-		margin-left: 3px;
-	}
 }
 
 .post {
@@ -332,29 +297,6 @@ export default {
 			height: 52px;
 			cursor: pointer;
 		}
-	}
-
-	&__pagination {
-		display: flex;
-		margin-top: 20px;
-		margin-bottom: 200px;
-		gap: 20px;
-	}
-
-	&__btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 52px;
-		height: 52px;
-		border: 1px solid #CDA274;
-		border-radius: 50%;
-	}
-
-	&__btn:hover {
-		background-color: $buttonColor;
-		border-color: $buttonColor;
-		cursor: pointer;
 	}
 }
 
