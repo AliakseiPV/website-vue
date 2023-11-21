@@ -2,9 +2,11 @@
 	<div class="hero">
 		<header class="hero__header">
 			<img class="hero__img" :src="imgSrc" alt="hero-image">
-			<h1 class="hero__title">{{ header }}</h1>
-			<div class="hero__bread-crumbs">
-				<a class="hero__link" v-for="link in links" :key="link.id" :href="link.href">{{ link.name }}</a>
+			<div v-if="header" class="hero__wrapper">
+				<h1 class="hero__title">{{ header }}</h1>
+				<div class="hero__bread-crumbs">
+					<a class="hero__link" v-for="link in links" :key="link.id" :href="link.href">{{ link.name }}</a>
+				</div>
 			</div>
 		</header>
 	</div>
@@ -40,15 +42,22 @@ export default {
 		height: 100%;
 	}
 
-	&__header {
+	&__wrapper {
 		border-radius: 37px 37px 0 0;
 		width: 500px;
 		height: 180px;
 		background-color: #fff;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__header {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		flex-direction: column;
 	}
 
 	&__title {

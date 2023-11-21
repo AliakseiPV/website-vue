@@ -2,28 +2,33 @@
 	<div id="app">
 		<BgLinesComponent />
 		<!-- <ArticlePage /> -->
-		<ProjectPage />
+		<!-- <ProjectPage /> -->
+		<ProjectDetailsPage/>
 	</div>
 </template>
 
 <script>
 import BgLinesComponent from './components/BgLinesComponent.vue'
 // import ArticlePage from './pages/ArticlePage'
-import ProjectPage from './pages/ProjectPage.vue'
+// import ProjectPage from './pages/ProjectPage.vue'
+import ProjectDetailsPage from './pages/ProjectDetailsPage.vue';
 
 export default {
 	name: 'App',
 	components: {
 		BgLinesComponent,
 		// ArticlePage,
-		ProjectPage,
-	}
+		// ProjectPage,
+		ProjectDetailsPage
+	},
+
 }
 </script>
 
 <style lang="scss">
 @import url(https://fonts.googleapis.com/css?family=DM+Serif+Display:regular,italic);
 @import url(https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 
 @import './styles/vars.scss';
 
