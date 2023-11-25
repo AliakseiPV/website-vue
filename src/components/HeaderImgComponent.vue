@@ -5,7 +5,7 @@
 			<div v-if="header" class="hero__wrapper">
 				<h1 class="hero__title">{{ header }}</h1>
 				<div class="hero__bread-crumbs">
-					<a class="hero__link" v-for="link in links" :key="link.id" :href="link.href">{{ link.name }}</a>
+					<router-link class="hero__link" v-for="link in links" :key="link.id" :to="link.link">{{ link.name }}</router-link>
 				</div>
 			</div>
 		</header>

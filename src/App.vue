@@ -1,25 +1,17 @@
 <template>
 	<div id="app">
 		<BgLinesComponent />
-		<!-- <ArticlePage /> -->
-		<!-- <ProjectPage /> -->
-		<ProjectDetailsPage/>
+		<router-view />
 	</div>
 </template>
 
 <script>
 import BgLinesComponent from './components/BgLinesComponent.vue'
-// import ArticlePage from './pages/ArticlePage'
-// import ProjectPage from './pages/ProjectPage.vue'
-import ProjectDetailsPage from './pages/ProjectDetailsPage.vue';
 
 export default {
 	name: 'App',
 	components: {
 		BgLinesComponent,
-		// ArticlePage,
-		// ProjectPage,
-		ProjectDetailsPage
 	},
 
 }
@@ -58,5 +50,8 @@ a {
 	border-radius: 50%;
 	border: none;
 	background-color: $buttonColor;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 </style>

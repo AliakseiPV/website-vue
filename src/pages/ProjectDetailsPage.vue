@@ -67,9 +67,6 @@ export default {
 		HeaderImgComponent,
 		SsrCarousel,
 	},
-	// mounted() {
-	// 	this.fetchSlider()
-	// },
 	data() {
 		return {
 			heroSection: {
@@ -101,7 +98,8 @@ export default {
 			this.fetchSlider()
 			return this.slider
 		}
-	}
+	},
+	
 }
 </script>
 

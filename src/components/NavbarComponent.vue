@@ -1,21 +1,28 @@
 <template>
-	<nav class="navbar">
-		<div class="navbar__logo">
-			<img class="navbar__logo-img" src="../assets/logo.svg" alt="logo">
-			<span class="navbar__logo-text">Interno</span>
-		</div>
-		<ul class="navbar__links">
-			<li><a class="navbar__link" href="#">Home</a></li>
-			<li><a class="navbar__link" href="#">Project</a></li>
-			<li><a class="navbar__link" href="#">Blog</a></li>
-		</ul>
-	</nav>
+	<div>
+		<nav class="navbar">
+			<router-link to="/" class="navbar__logo">
+				<img class="navbar__logo-img" src="../assets/logo.svg" alt="logo">
+				<span class="navbar__logo-text">Interno</span>
+			</router-link>
+			<ul class="navbar__links">
+				<li><router-link class="navbar__link" to="/">Home</router-link></li>
+				<li><router-link class="navbar__link" to="/project">Project</router-link></li>
+				<li><router-link class="navbar__link" to="/blog">Blog</router-link></li>
+			</ul>
+		</nav>
+	</div>
 </template>
 
 <script>
 
 export default {
 	name: 'NavbarComponent',
+	data() {
+		return {
+			// page: project,
+		}
+	},
 }
 </script>
 

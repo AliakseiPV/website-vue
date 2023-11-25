@@ -28,9 +28,9 @@
 				<nav class="footer__nav">
 					<ul class="footer__links">
 						<li class="footer__heading">Pages</li>
-						<li><a href="#" class="footer__link">Home</a></li>
-						<li><a href="#" class="footer__link">Project</a></li>
-						<li><a href="#" class="footer__link">Blog</a></li>
+						<li><router-link to="/" class="footer__link">Home</router-link></li>
+						<li><router-link to="project" class="footer__link">Project</router-link></li>
+						<li><router-link to="blog" class="footer__link">Blog</router-link></li>
 					</ul>
 				</nav>
 

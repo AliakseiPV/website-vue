@@ -23,9 +23,9 @@
 							</li>
 						</ul>
 					</div>
-					<button class="project-room__btn">
+					<router-link to="project-details" class="project-room__btn arrow_btn">
 						<img src="../assets/vector.svg" alt="vector">
-					</button>
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -40,6 +40,7 @@ import NavbarComponent from '../components/NavbarComponent.vue'
 import FooterComponent from '../components/FooterComponent'
 import PaginationComponent from '../components/PaginationComponent.vue'
 import HeaderImgComponent from '../components/HeaderImgComponent.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
 	name: 'ProjectPage',
@@ -50,11 +51,13 @@ export default {
 		HeaderImgComponent,
 	},
 	methods: {
+		...mapActions(['fetchRoom']),
 		findTagHandler(tag) {
 			this.findTag = tag
 		}
 	},
 	computed: {
+		...mapGetters(['rooms']),
 		filteredPosts() {
 			if (this.findTag) {
 				return this.rooms.filter((el) => el.tag === this.findTag)
@@ -62,6 +65,9 @@ export default {
 				return this.posts
 			}
 		}
+	},
+	mounted () {
+		this.fetchRoom()
 	},
 	data() {
 		return {
@@ -73,114 +79,16 @@ export default {
 					{
 						id: 0,
 						name: 'Home',
-						href: '#'
+						link: '/'
 					},
 					{
 						id: 1,
 						name: 'Project',
-						href: '#'
+						link: '/project'
 					}
 				]
 			},
 			roomTags: ['Bathroom', 'Bed Room', 'Kitchen', 'Living Area'],
-			rooms: [
-				{
-					id: 0,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom01.jpg'),
-					liked: true,
-					header: 'Minimal Bedroom',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 1,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom02.jpg'),
-					liked: false,
-					header: 'Minimal Bedroom',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 2,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom03.jpg'),
-					liked: false,
-					header: 'Classic Minimal Bedroom',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 3,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom04.jpg'),
-					liked: true,
-					header: 'Modern Bedroom',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 4,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom05.jpg'),
-					liked: true,
-					header: 'Minimal Bedroom table',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 5,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom06.jpg'),
-					liked: false,
-					header: 'Desk',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 6,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom07.jpg'),
-					liked: false,
-					header: 'Modern Bedroom',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 7,
-					tag: 'Bed Room',
-					img: require('../assets/bedroom08.jpg'),
-					liked: true,
-					header: 'Modern Bedroom',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 8,
-					tag: 'Kitchen',
-					img: require('../assets/homepage-kitchen01.jpg'),
-					liked: true,
-					header: 'Minimal Kitchen',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 9,
-					tag: 'Kitchen',
-					img: require('../assets/homepage-kitchen02.jpg'),
-					liked: false,
-					header: 'Minimal Kitchen',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 10,
-					tag: 'Kitchen',
-					img: require('../assets/homepage-kitchen03.jpg'),
-					liked: false,
-					header: 'Classic Minimal Kitchen',
-					categories: ['Decor', 'Artchitecture']
-				},
-				{
-					id: 11,
-					tag: 'Kitchen',
-					img: require('../assets/homepage-kitchen04.jpg'),
-					liked: true,
-					header: 'Modern Kitchen',
-					categories: ['Decor', 'Artchitecture']
-				},
-			]
 		}
 	},
 }
@@ -284,10 +192,6 @@ export default {
 	&__btn {
 		width: 70px;
 		height: 70px;
-		border-radius: 50%;
-		border: none;
-		background-color: $buttonColor;
-		cursor: pointer;
 	}
 }
 </style>

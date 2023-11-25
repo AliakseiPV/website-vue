@@ -21,9 +21,9 @@
 						<span class="post__date">
 							26 December,2022
 						</span>
-						<button class="post__button arrow_btn">
+						<router-link to="blog-details" class="post__button arrow_btn">
 							<img src="../assets/vector.svg" alt="vector">
-						</button>
+						</router-link>
 					</div>
 
 				</div>
@@ -44,9 +44,9 @@
 					<h3 class="news__item_title">{{ article.title }}</h3>
 					<div class="news__item_wrapper">
 						<span class="news__item_date">{{ article.date }}</span>
-						<button class="news__item_button arrow_btn">
+						<router-link to="blog-details" class="news__item_button arrow_btn">
 							<img src="../assets/vector.svg" alt="vector">
-						</button>
+						</router-link>
 					</div>
 				</div>
 			</div>
@@ -64,6 +64,7 @@ import NavbarComponent from '../components/NavbarComponent'
 import FooterComponent from '../components/FooterComponent'
 import PaginationComponent from '../components/PaginationComponent.vue'
 import HeaderImgComponent from '../components/HeaderImgComponent.vue'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
 	name: 'ArticlePage',
@@ -72,6 +73,15 @@ export default {
 		FooterComponent,
 		PaginationComponent,
 		HeaderImgComponent,
+	},
+	mounted () {
+		this.fetchArticle()
+	},	
+	methods: {
+		...mapActions(['fetchArticle'])
+	},
+	computed: {
+		...mapGetters(['articles']),
 	},
 	data() {
 		return {
@@ -82,59 +92,15 @@ export default {
 					{
 						id: 0,
 						name: 'Home',
-						href: '#'
+						link: '/'
 					},
 					{
 						id: 1,
 						name: 'Blog',
-						href: '#'
+						link: '/blog'
 					}
 				]
 			},
-			articles: [
-				{
-					id: 0,
-					img: require('../assets/homepage-design01.jpg'),
-					designRoom: 'Kitchen Design',
-					title: 'Let’s Get Solution For Building Construction Work',
-					date: '26 December,2022'
-				},
-				{
-					id: 1,
-					img: require('../assets/homepage-design02.jpg'),
-					designRoom: 'Living Design',
-					title: 'Low Cost Latest Invented Interior Designing Ideas.',
-					date: '22 December,2022'
-				},
-				{
-					id: 2,
-					img: require('../assets/homepage-design03.jpg'),
-					designRoom: 'Interior Design',
-					title: 'Best For Any Office & Business Interior Solution',
-					date: '25 December,2022'
-				},
-				{
-					id: 3,
-					img: require('../assets/news-design01.jpg'),
-					designRoom: 'Kitchen Design',
-					title: 'Let’s Get Solution For Building Construction Work',
-					date: '26 December,2022'
-				},
-				{
-					id: 4,
-					img: require('../assets/news-design02.jpg'),
-					designRoom: 'Kitchen Design',
-					title: 'Low Cost Latest Invented Interior Designing Ideas.',
-					date: '22 December,2022'
-				},
-				{
-					id: 5,
-					img: require('../assets/news-design03.jpg'),
-					designRoom: 'Kitchen Design',
-					title: 'Best For Any Office & Business Interior Solution',
-					date: '25 December,2022'
-				},
-			]
 		}
 	}
 
