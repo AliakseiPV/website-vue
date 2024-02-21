@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkwebsite_vue"]=self["webpackChunkwebsite_vue"]||[]).push([[727],{6850:function(e,u,n){n.r(u),n.d(u,{default:function(){return l}});var t=function(){var e=this,u=e._self._c;return u("div",[e._v(" 404 ")])},s=[],f={name:"NotFound"},r=f,c=n(1001),i=(0,c.Z)(r,t,s,!1,null,"6b2fcf41",null),l=i.exports}}]);
-//# sourceMappingURL=727.6f26ef84.js.map
